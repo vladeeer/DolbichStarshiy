@@ -1,4 +1,5 @@
 import random
+from Jokes import *
 from datetime import datetime
 
 def lookFor(a,b):
@@ -16,6 +17,12 @@ def message_responses(input_text, user_name):
     elif(lookFor(["олег","олеж"], user_message)):
         resp.append(random.choice(["Я нэ понил","Ээээ"]))
         resp.append(random.choice(["За Алежу тоби пизида","Ево не трогой ато наиду","За Алежу и дывор стреляйу вупор"]))
+
+    elif(lookFor(["шут","анекд","юмор"], user_message)):
+        resp.append(random.choice(["Хочиш пасмиаца?","Разкажыу анегдот","Есть у миня шутка"]))
+        resp = resp + random.choice(jokes)
+        resp.append(random.choice(["Правда смишно?","Апаахпхз","Понел?!)))","Пахаха"]))
+        resp.append(random.choice(["Маиа любимая","Абажаю эту шутыку","","","",""])) 
 
     elif(lookFor(["пасиб","спс","благод"], user_message)):
         resp.append(random.choice(["Незашта","Нестоет"]))
@@ -45,8 +52,6 @@ def message_responses(input_text, user_name):
     elif (lookFor(["врем","час"], user_message)):
         now = datetime.now()
         date_time = now.strftime("%H %M")
-        date_time2 = now.strftime("%d/%m/%y") 
-
         resp.append(random.choice(["Сичас ","У миня на чисах ","Друк сказыал "])+str(date_time))
         
     elif("?" in user_message):

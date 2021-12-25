@@ -8,9 +8,9 @@ import Func as F
 print("Bot strarted...")
 
 def typing(update, n):
-    for i in range(0, n):
+    for i in range(0, int(2*n)):
         dp.bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
-        time.sleep(1)
+        time.sleep(0.5)
 
 def log_message(name, text):
     for log_chat in keys.LOG_CHATS:
@@ -75,9 +75,8 @@ def handle_message(update, context):
             for i in resp:
                 if (i == ""):
                     continue
-                dp.bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
+                typing(update, float(len(i))/7.0)
                 log_message("Bot", i)
-                time.sleep(len(i)/7)
                 update.message.reply_text(i)
     
     elif (update.edited_message != None):
