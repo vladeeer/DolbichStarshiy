@@ -64,8 +64,8 @@ def help_command(update, context):
     update.message.reply_text("Абаедежся")
 
 def handle_message(update, context):
-    if (update.message != None):
-        text=str(update.message.text).lower()
+    if (update.message != None and update.message[0] == "!"):
+        text=str(update.message.text).lower()[1:]
         log_message(update.message.from_user.first_name, update.message.text)
         if ((update.message.from_user.id in keys.ADMINS) and (text[0]=="/")):
             print("Admin: " + text)
